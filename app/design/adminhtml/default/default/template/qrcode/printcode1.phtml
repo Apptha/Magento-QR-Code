@@ -1,0 +1,49 @@
+<?php 
+/**
+ * @name         :  Apptha QR Code for Magento
+ * @version      :  1.0
+ * @since        :  Magento 1.5
+ * @author       :  Apptha - http://www.apptha.com
+ * @copyright    :  Copyright (C) 2011 Powered by Apptha
+ * @license      :  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @Creation Date:  Nov 19 2011
+ * 
+ * */
+?>
+<?php $qrcodeId = $this->getLayout()->getBlock('print1')->getqrid();?>
+	<?php $baseUrl =  Mage::getBaseUrl(); ?>
+	<table rules="rows" style="border:5px solid #EEEEED;background:url('<?php echo $this->getSkinUrl()?>qrcode/images/grey.jpg');" width="55%">
+	<?php foreach($qrcodeId as $qr_id)
+   {
+   	
+	$baseUrl = str_replace('index.php/', '', $baseUrl);
+	$PNG_DIR = $baseUrl.'/skin/frontend/default/default/Qrcode/images/';
+   	$collection = Mage::getModel('catalog/product')->getCollection();
+    $model = Mage::getModel('catalog/product');
+    $product = $model->load($qr_id);?>
+    <?php $Product_name = $product->getName();?>
+    <?php $Product_price = $product->getPrice();?>
+    <?php $Product_splprice = $product->getSpecialPrice();?>
+    <?php $Product_from_date = date("m-d-Y", strtotime($product->getSpecialFromDate()));?>
+    <?php $Product_to_date = date("m-d-Y",strtotime($product->getSpecialToDate()));?>
+    <?php $Product_desc = $product->getDescription();?>    
+    <?php $qrcodeimage = $this->printimage($qr_id);?>
+    <tr>
+    <td style="padding-left:20px;padding-top:20px;padding-bottom:20px;" width="50%">
+           <?php echo $qrcodeimage;?>
+        </td>
+       <td style="padding-left:20px;padding-top:20px" width="50%">
+            <strong style="font-size: 20px;font-family:Times New Roman,Times,serif;"><?php echo $Product_name?></strong><br/>
+            <strong style="font-size: 15px;"><?php echo "Price $".floor($Product_price);?></strong><br/>
+            <strong style="font-size: 15px;"><?php echo "Special Price $".floor($Product_splprice);?></strong><br/>
+            <strong style="font-size: 15px;"><?php echo "Special Available From  ".$Product_from_date;?></strong><br/>
+            <strong style="font-size: 15px;"><?php echo "Special Expiers on ".$Product_to_date;?></strong><br/>
+            <strong style="font-size: 15px;"><?php echo "Description: ".$Product_desc;?></strong><br/>
+        </td>
+        
+    </tr>
+   <tr style="border:1px solid #EDEDED;" width="100%"></tr>
+<?php } ?>
+</table>
+
+

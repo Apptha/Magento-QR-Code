@@ -1,0 +1,59 @@
+<?php $baseUrl =  Mage::getBaseUrl();
+//echo $targeturl = Mage::helper("adminhtml")->getUrl("qrcode/adminhtml_qrcode/mail/",array());
+?>
+<?php $qrcodeId = $this->getLayout()->getBlock('share')->getqrid();?>
+<script type="text/javascript">
+function validateForm(shareqrcode)
+{
+var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+var email = document.forms.shareqrcode.email.value;
+var name = document.forms.shareqrcode.name.value;
+if(name=="")
+{
+alert("Please enter your full name.");
+return false;
+}
+
+if(email=="")
+{
+      alert("Please enter email address.");
+      return false;
+}
+if(reg.test(email) == false) {
+      alert('Please Enter Valid Email Address');
+      return false;
+   }
+al();
+}
+function al()
+{alert('your mail has been sent');}
+  </script>
+<div id="stylized" class="myform">
+<form action="<?php echo $baseUrl.'qrcode/index/qrcodemail'?>" id="shareqrcode" name="shareqrcode" method="post" onSubmit="return validateForm(shareqrcode);">
+<h1>Share Product QR Codes</h1>
+
+<label>Name
+<span class="small">Recipient name</span>
+</label>
+<input type="text" name="name" id="name"/>
+<label>Message
+<span class="small">Your message</span>
+</label>
+<textarea width="10px" height="10px" name="message" id="message"></textarea>
+<label>Email
+<span class="small">Recipient E-mail address</span>
+</label>
+<input type="text" name="email" id="email"/>
+ <?php $data=serialize($qrcodeId);
+ $encoded=htmlentities($data);
+ echo '<input type="hidden" name="order" id="qrid" value="'.$encoded.'">';?>
+<div>
+<div style="float:left"><button type="button" onclick="javascript:self.history.back();"><span><?php echo $this->__('Back'); ?></span></button></div>
+<div style="float:right"><button type="submit" id="mail"><span><?php echo $this->__('Send'); ?></span></button></div>
+</div>
+<div class="spacer"></div>
+
+</form>
+</div>
+
+     

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <catalog_product_view>
+    <reference name='head'>
+    <action method="addCss"><stylesheet>Qrcode/css/styles.css</stylesheet></action>
+    </reference>
+    <reference name="right">
+            <block type="qrcode/qrcode" name="qrcode" template="qrcode/qrcode.phtml" after="cart_sidebar" />
+        </reference>
+    </catalog_product_view>
+
+</layout> 

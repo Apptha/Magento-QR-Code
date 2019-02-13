@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+<default>
+<reference name='head'>
+    <action method="addCss"><stylesheet>qrcode/css/form.css</stylesheet></action>
+    </reference>
+  </default>
+    <qrcode_adminhtml_qrcode_index>
+        <reference name="content">
+            <block type="qrcode/adminhtml_qrcode" name="qrcode" />     
+        </reference>
+    </qrcode_adminhtml_qrcode_index>
+    <qrcode_adminhtml_print_index>
+        <reference name="content">
+            <block type="qrcode/adminhtml_print" name="print" />     
+        </reference>
+    </qrcode_adminhtml_print_index>
+    <qrcode_adminhtml_qrcode_print> 
+    <reference name="content">
+               <block type="qrcode/adminhtml_qrcode" template="qrcode/printcode.phtml" name="print" />
+               <remove name="header"/>
+               <remove name="footer"/>
+               <remove name="notifications"/>
+               <remove name="menu"/>
+               </reference>
+    <reference name="content">
+               <block type="qrcode/adminhtml_qrcode" template="qrcode/printcode1.phtml" name="print1" />
+               <remove name="header"/>
+               <remove name="footer"/>
+               <remove name="notifications"/>
+               <remove name="menu"/>
+               </reference>
+    <reference name="content">
+               <block type="qrcode/adminhtml_qrcode" template="qrcode/printcode2.phtml" name="print2" />
+               <remove name="header"/>
+               <remove name="footer"/>
+               <remove name="notifications"/>
+               <remove name="menu"/>
+               </reference>
+    </qrcode_adminhtml_qrcode_print>
+</layout>

@@ -1,0 +1,20 @@
+/* Sidebar =============================================================================== */
+.block-qrcode { border:1px solid #c4c1bc; margin:0 0 15px; }
+.block-qrcode .block-title { }
+.block-qrcode .block-title strong {background:url(../images/barcode_icon.png) 0 0 no-repeat; padding-left:21px;}
+.block .block-title strong{}
+.block-qrcode .block-title strong span {}
+.block-qrcode .block-title a { text-decoration:none !important; }
+.block-qrcode .block-subtitle { margin:0; padding:5px 9px; font-size:1em; font-weight:bold; color:#0a263c; }
+.block-qrcode .block-content { background:#f8f7f5; text-align: center; }
+.block-qrcode .block-content li.item { padding:7px 9px; }
+.block-qrcode .block-content .product-name { color:#1e7ec8; }
+.block-qrcode .btn-remove,
+.block-qrcode .btn-edit { float:right; margin:1px 0 2px 5px; }
+.block-qrcode .actions { background:#dee5e8 url(../images/bkg_block-actions.gif) 0 0 repeat-x; padding:6px 9px; text-align:right; }
+.block-qrcode .actions a { float:left; }
+.block-qrcode .actions button.button { float:right; }
+.block-qrcode .empty { margin:0; padding:5px 9px; }
+
+.block-qrcode .block li.odd { background-color:#f4f3f3; }
+.block-qrcode .block li.even { background-color:#fafafa; }
